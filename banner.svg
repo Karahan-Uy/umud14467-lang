@@ -1,37 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
   <defs>
-    <!-- ئارقا كۆرۈنۈش رەڭ ئۆزگىرىشى -->
+    <!-- ئارقا كۆرۈنۈش رەڭگى -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#060913" />
       <stop offset="50%" stop-color="#0d1527" />
       <stop offset="100%" stop-color="#070b16" />
     </linearGradient>
 
-    <!-- خەرىتە ئىچىدىكى رەڭ -->
+    <!-- خەرىتە ئاساسلىق رەڭگى -->
     <linearGradient id="mapFill" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.3" />
-      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2" />
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.7" />
     </linearGradient>
 
-    <!-- كۆك نۇر لىنىيەسى -->
+    <!-- ھەرىكەتچان كۆك نۇر -->
     <linearGradient id="cyanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#00f2fe" />
       <stop offset="50%" stop-color="#38bdf8" />
       <stop offset="100%" stop-color="#00f2fe" />
     </linearGradient>
 
-    <!-- ئالتۇن نۇر لىنىيەسى -->
+    <!-- ھەرىكەتچان ئالتۇن نۇر -->
     <linearGradient id="goldBeam" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffd700" />
       <stop offset="50%" stop-color="#f59e0b" />
       <stop offset="100%" stop-color="#fef08a" />
     </linearGradient>
 
-    <!-- نۇر چاقناش ئۈنۈمى (Neon Glow Filter) -->
+    <!-- نۇر چاقناش ئۈنۈمى -->
     <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="4" result="blur1" />
-      <feGaussianBlur stdDeviation="9" result="blur2" />
+      <feGaussianBlur stdDeviation="8" result="blur2" />
       <feMerge>
         <feMergeNode in="blur2" />
         <feMergeNode in="blur1" />
@@ -39,39 +38,32 @@
       </feMerge>
     </filter>
 
-    <!-- تور سىزىقچىلىرى -->
+    <!-- تور ئارقا كۆرۈنۈشى -->
     <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.7" stroke-opacity="0.5" />
     </pattern>
 
-    <!-- سىز تەمىنلىگەن ئەسلى شەكىلدىكى خەرىتىنىڭ ۋېكتورلۇق گېئومېتىرىيەسى -->
-    <g id="exactMap">
-      <path pathLength="1000" d="M 245 28 C 255 28 268 23 276 30 C 285 38 296 45 304 55 C 316 67 330 78 338 94 C 344 105 352 114 362 122 C 378 135 394 150 410 165 C 424 178 436 194 445 210 C 452 222 458 236 462 250 C 468 270 472 292 468 314 C 465 328 458 340 448 350 C 435 362 418 372 402 382 C 385 392 368 402 350 410 C 332 418 314 425 295 432 C 278 438 260 444 242 438 C 228 434 216 422 205 412 C 190 398 178 382 165 368 C 152 354 138 340 125 325 C 112 310 98 295 85 280 C 72 265 60 250 48 235 C 38 222 28 208 22 192 C 16 176 18 158 28 145 C 40 130 55 120 72 112 C 92 102 114 96 135 88 C 155 80 176 74 195 62 C 210 52 225 40 240 30 Z" />
-      <path pathLength="1000" d="M 285 55 C 298 62 310 74 318 88 C 326 102 334 116 345 128 C 358 142 375 152 392 162 C 408 172 425 185 435 202 C 445 218 450 238 448 258 C 445 278 435 296 422 312 C 408 328 390 342 372 355 C 355 368 338 382 318 392 C 298 402 276 410 255 405 C 238 400 224 388 212 376 C 198 362 185 348 172 334 C 158 320 145 306 132 292 C 118 278 105 264 92 250 C 80 236 68 222 60 205 C 52 188 55 168 68 155 C 82 140 100 130 118 122 C 140 112 162 105 185 98 C 210 90 235 85 258 72 C 268 66 278 60 285 55 Z" />
-    </g>
+    <!-- خەرىتە گېئومېتىرىيەسى -->
+    <path id="exactMap" d="M 230 45 C 248 42 265 35 282 42 C 298 50 312 62 325 76 C 338 90 350 105 362 120 C 378 136 395 152 412 168 C 428 184 442 202 452 222 C 462 240 468 260 465 282 C 462 302 452 320 438 335 C 422 352 402 365 382 375 C 362 385 340 392 318 400 C 296 408 274 415 252 410 C 235 405 220 392 208 378 C 192 360 178 342 165 322 C 152 302 138 282 125 262 C 112 242 98 222 85 202 C 72 182 58 162 48 140 C 38 118 32 95 45 75 C 58 55 82 48 105 45 C 130 42 155 45 180 42 C 198 40 215 48 230 45 Z" />
   </defs>
 
   <style>
-    .title { font: 800 40px 'Segoe UI', 'Inter', Ubuntu, Sans-Serif; fill: #ffffff; letter-spacing: 1px; }
+    .title { font: 800 40px 'Segoe UI', Ubuntu, Sans-Serif; fill: #ffffff; letter-spacing: 1px; }
     .highlight { fill: #38bdf8; }
     .gold-text { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #fbbf24; letter-spacing: 2.5px; text-transform: uppercase; }
     .sub-text { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #94a3b8; }
     .badge-text { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; }
 
-    .map-base {
-      fill: url(#mapFill);
-      stroke: #334155;
-      stroke-width: 1.5;
-    }
-
+    .map-base { fill: url(#mapFill); stroke: #334155; stroke-width: 1.5; }
+    
     .map-border-cyan {
       fill: none;
       stroke: url(#cyanBeam);
       stroke-width: 4;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 250 750;
-      animation: flowCyan 4.5s linear infinite;
+      stroke-dasharray: 200 600;
+      animation: flowCyan 4s linear infinite;
     }
 
     .map-border-gold {
@@ -80,8 +72,8 @@
       stroke-width: 3.5;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 180 820;
-      animation: flowGold 4.5s linear infinite;
+      stroke-dasharray: 150 650;
+      animation: flowGold 4s linear infinite;
     }
 
     .tech-orbit {
@@ -95,13 +87,13 @@
     }
 
     @keyframes flowCyan {
-      0% { stroke-dashoffset: 1000; }
+      0% { stroke-dashoffset: 800; }
       100% { stroke-dashoffset: 0; }
     }
 
     @keyframes flowGold {
-      0% { stroke-dashoffset: 500; }
-      100% { stroke-dashoffset: -500; }
+      0% { stroke-dashoffset: 400; }
+      100% { stroke-dashoffset: -400; }
     }
 
     @keyframes spinOrbit {
@@ -110,16 +102,15 @@
     }
   </style>
 
-  <!-- ئارقا تەگلىك ۋە تېخنىكىلىق تور -->
+  <!-- ئارقا تەگلىك -->
   <rect width="1200" height="380" rx="18" fill="url(#bgGrad)" />
   <rect width="1200" height="380" rx="18" fill="url(#techGrid)" />
-
-  <!-- سىرتقى رامكا نۇرى -->
   <rect x="2" y="2" width="1196" height="376" rx="16" fill="none" stroke="#1e293b" stroke-width="2" />
+  
   <line x1="60" y1="2" x2="450" y2="2" stroke="url(#cyanBeam)" stroke-width="3" filter="url(#neonGlow)" />
   <line x1="750" y1="378" x2="1140" y2="378" stroke="url(#goldBeam)" stroke-width="3" filter="url(#neonGlow)" />
 
-  <!-- سول تەرەپ: شەخسىي تونۇشتۇرۇش ۋە تېخنىكا بەلگىلىرى -->
+  <!-- سول تەرەپ: تېكىست ۋە بەلگىلەر -->
   <g transform="translate(65, 65)">
     <rect x="0" y="0" width="290" height="32" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5" />
     <circle cx="18" cy="16" r="5" fill="#22c55e" filter="url(#neonGlow)" />
@@ -146,12 +137,12 @@
     </g>
   </g>
 
-  <!-- ئوڭ تەرەپ: ئايلىنىۋاتقان ئوربىتا ۋە خەرىتە -->
+  <!-- ئوڭ تەرەپ: ئوربىتا ۋە خەرىتە -->
   <circle cx="950" cy="190" r="165" class="tech-orbit" />
   <circle cx="950" cy="190" r="140" fill="#0ea5e9" fill-opacity="0.04" filter="url(#neonGlow)" />
 
   <!-- خەرىتە ۋە نۇرلۇق ھەرىكەت قەۋىتى -->
-  <g transform="translate(745, -15) scale(0.85)">
+  <g transform="translate(745, -15) scale(0.9)">
     <use href="#exactMap" class="map-base" />
     <use href="#exactMap" class="map-border-cyan" filter="url(#neonGlow)" />
     <use href="#exactMap" class="map-border-gold" filter="url(#neonGlow)" />
