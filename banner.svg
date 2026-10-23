@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+  <defs>
+    <!-- ئارقا كۆرۈنۈش رەڭ ئۆزگىرىشى -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913" />
+      <stop offset="50%" stop-color="#0d1527" />
+      <stop offset="100%" stop-color="#070b16" />
+    </linearGradient>
+
+    <!-- خەرىتە ئىچىدىكى رەڭ -->
+    <linearGradient id="mapFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#eab308" stop-opacity="0.18" />
+    </linearGradient>
+
+    <!-- كۆك نۇر لىنىيەسى -->
+    <linearGradient id="cyanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <!-- ئالتۇن نۇر لىنىيەسى -->
+    <linearGradient id="goldBeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd700" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+
+    <!-- نۇر چاقناش ئۈنۈمى (Neon Glow Filter) -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4.5" result="blur1" />
+      <feGaussianBlur stdDeviation="10" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- تور سىزىقچىلىرى -->
+    <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.7" stroke-opacity="0.5" />
+    </pattern>
+
+    <!-- شەرقىي تۈركىستان خەرىتىسىنىڭ گېئومېتىرىيەلىك چىگرىسى -->
+    <path id="etMapPath" pathLength="1000" d="M 308 36 L 325 48 L 341 65 L 355 86 L 370 104 L 392 126 L 419 143 L 440 158 L 458 174 L 474 203 L 462 218 L 448 234 L 428 248 L 409 265 L 398 282 L 390 299 L 383 312 L 376 325 L 369 348 L 361 369 L 332 371 L 302 372 L 268 377 L 234 382 L 212 388 L 191 395 L 168 408 L 146 419 L 128 405 L 113 390 L 88 374 L 62 356 L 47 334 L 33 312 L 29 278 L 48 267 L 68 257 L 95 248 L 121 239 L 142 228 L 160 216 L 162 190 L 164 164 L 180 151 L 195 138 L 203 117 L 211 96 L 237 91 L 263 86 L 270 71 L 277 57 L 292 46 Z" />
+  </defs>
+
+  <style>
+    .title { font: 800 40px 'Segoe UI', 'Inter', Ubuntu, Sans-Serif; fill: #ffffff; letter-spacing: 1px; }
+    .highlight { fill: #38bdf8; }
+    .gold-text { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #fbbf24; letter-spacing: 2.5px; text-transform: uppercase; }
+    .sub-text { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #94a3b8; }
+    .badge-text { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; }
+
+    /* خەرىتە گىرۋىكىدىكى ھەرىكەتچان كۆك نۇر */
+    .map-border-cyan {
+      fill: none;
+      stroke: url(#cyanBeam);
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 220 780;
+      animation: flowCyan 5s linear infinite;
+    }
+
+    /* خەرىتە گىرۋىكىدىكى ھەرىكەتچان ئالتۇن نۇر */
+    .map-border-gold {
+      fill: none;
+      stroke: url(#goldBeam);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 140 860;
+      animation: flowGold 5s linear infinite;
+    }
+
+    /* خەرىتە ئاستىدىكى نەپىس نۇر قەۋىتى */
+    .map-base {
+      fill: url(#mapFill);
+      stroke: #334155;
+      stroke-width: 1.5;
+      animation: mapPulse 4s ease-in-out infinite alternate;
+    }
+
+    .radar-ring {
+      fill: none;
+      stroke: #38bdf8;
+      stroke-width: 1.2;
+      transform-origin: 250px 235px;
+      animation: radarExpand 3s ease-out infinite;
+    }
+
+    .tech-orbit {
+      fill: none;
+      stroke: #eab308;
+      stroke-opacity: 0.25;
+      stroke-width: 1;
+      stroke-dasharray: 12 8;
+      transform-origin: 950px 190px;
+      animation: spinOrbit 24s linear infinite;
+    }
+
+    @keyframes flowCyan {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes flowGold {
+      0% { stroke-dashoffset: 500; }
+      100% { stroke-dashoffset: -500; }
+    }
+
+    @keyframes mapPulse {
+      0% { fill-opacity: 0.75; }
+      100% { fill-opacity: 1; }
+    }
+
+    @keyframes radarExpand {
+      0% { transform: scale(0.2); opacity: 0.9; }
+      100% { transform: scale(2.8); opacity: 0; }
+    }
+
+    @keyframes spinOrbit {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- ئارقا تەگلىك ۋە تېخنىكىلىق تور -->
+  <rect width="1200" height="380" rx="18" fill="url(#bgGrad)" />
+  <rect width="1200" height="380" rx="18" fill="url(#techGrid)" />
+
+  <!-- سىرتقى رامكا نۇرى -->
+  <rect x="2" y="2" width="1196" height="376" rx="16" fill="none" stroke="#1e293b" stroke-width="2" />
+  <line x1="60" y1="2" x2="450" y2="2" stroke="url(#cyanBeam)" stroke-width="3" filter="url(#neonGlow)" />
+  <line x1="750" y1="378" x2="1140" y2="378" stroke="url(#goldBeam)" stroke-width="3" filter="url(#neonGlow)" />
+
+  <!-- سول تەرەپ: شەخسىي تونۇشتۇرۇش ۋە تېخنىكا بەلگىلىرى -->
+  <g transform="translate(65, 65)">
+    <!-- يۇقىرىقى كەسپىي بەلگە -->
+    <rect x="0" y="0" width="290" height="32" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5" />
+    <circle cx="18" cy="16" r="5" fill="#22c55e" filter="url(#neonGlow)" />
+    <text x="34" y="21" class="gold-text" style="font-size: 12px; letter-spacing: 1.5px;">SOFTWARE DEVELOPER & CREATOR</text>
+
+    <!-- ئاساسىي ماۋزۇ -->
+    <text x="0" y="88" class="title">Assalamu Alaikum, I'm a <tspan class="highlight">Developer</tspan></text>
+    <text x="0" y="130" class="gold-text">Building Modern Desktop, Web & AI Solutions</text>
+
+    <!-- چۈشەندۈرۈش تېكىستى -->
+    <text x="0" y="170" class="sub-text">Passionate about crafting clean architecture, intelligent automation,</text>
+    <text x="0" y="196" class="sub-text">and high-performance applications with modern user interfaces.</text>
+
+    <!-- تېخنىكا كۇنۇپكىلىرى (Glassmorphic Pills) -->
+    <g transform="translate(0, 225)">
+      <rect x="0" y="0" width="115" height="34" rx="8" fill="#1e293b" fill-opacity="0.7" stroke="#38bdf8" stroke-width="1" />
+      <text x="57" y="22" text-anchor="middle" class="badge-text">🐍 Python</text>
+
+      <rect x="130" y="0" width="130" height="34" rx="8" fill="#1e293b" fill-opacity="0.7" stroke="#fbbf24" stroke-width="1" />
+      <text x="195" y="22" text-anchor="middle" class="badge-text">⚡ Full-Stack</text>
+
+      <rect x="275" y="0" width="125" height="34" rx="8" fill="#1e293b" fill-opacity="0.7" stroke="#38bdf8" stroke-width="1" />
+      <text x="337" y="22" text-anchor="middle" class="badge-text">🤖 AI & Data</text>
+
+      <rect x="415" y="0" width="135" height="34" rx="8" fill="#1e293b" fill-opacity="0.7" stroke="#fbbf24" stroke-width="1" />
+      <text x="482" y="22" text-anchor="middle" class="badge-text">🎨 UI / UX Design</text>
+    </g>
+  </g>
+
+  <!-- ئوڭ تەرەپ: ئايلىنىۋاتقان ئوربىتا ۋە ھەرىكەتچان نۇرلۇق خەرىتە -->
+  <circle cx="950" cy="190" r="165" class="tech-orbit" />
+  <circle cx="950" cy="190" r="140" fill="#0ea5e9" fill-opacity="0.04" filter="url(#neonGlow)" />
+
+  <!-- خەرىتە قىسمى -->
+  <svg x="735" y="-15" width="430" height="410" viewBox="0 0 512 512">
+    <!-- 1. خەرىتە ئاساسىي قەۋىتى -->
+    <use href="#etMapPath" class="map-base" />
+
+    <!-- 2. خەرىتە مەركىزىدىكى رادار نۇقـتىسى -->
+    <circle cx="250" cy="235" r="18" class="radar-ring" />
+    <circle cx="250" cy="235" r="5" fill="#38bdf8" filter="url(#neonGlow)" />
+    <circle cx="165" cy="245" r="3.5" fill="#fbbf24" filter="url(#neonGlow)" />
+    <circle cx="305" cy="185" r="3.5" fill="#fbbf24" filter="url(#neonGlow)" />
+
+    <!-- 3. گىرۋەكتە ماڭىدىغان كۆك نۇر (Neon Cyan Beam) -->
+    <use href="#etMapPath" class="map-border-cyan" filter="url(#neonGlow)" />
+
+    <!-- 4. گىرۋەكتە ماڭىدىغان ئالتۇن نۇر (Neon Gold Beam) -->
+    <use href="#etMapPath" class="map-border-gold" filter="url(#neonGlow)" />
+  </svg>
+</svg>
